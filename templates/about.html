@@ -32,5 +32,6 @@
         <p>{{ member.description }}</p>
     </div>
 </div>
+<!--if not the last element so dont display the divider-->
 {% endif %} {% if loop.index != 3 %}
 <hr class="featurette-divider"> {% endif %} {% endfor %} {% endblock %}
