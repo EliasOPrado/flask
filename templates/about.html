@@ -6,22 +6,31 @@
     adaptable and mobile Terrans, the ever-evolving insectoid Zerg, the powerfully enigmatic Protoss, and the "god-like" Xel'Naga creator race—in a distant part of the Milky Way galaxy known as the Koprulu Sector. The series debuted with the video game
     StarCraft in 1998. It has grown to include a number of other games as well as eight novelizations, two Amazing Stories articles, a board game, and other licensed merchandise such as collectible statues and toys.
 </p>
-
-{% for member in company %}
-
+<!--loop all elements within json-->
+{% for member in races %} 
+<!--sort elements and gives its index-->
+{% if loop.index % 2 != 0%}
 <div class="row featurette">
     <div class="col-md-7">
-        <h3>{{member.name}}</h3>
+        <h3>{{loop.index}} {{member.name}}</h3>
         <p>
             {{member.description}}
         </p>
     </div>
     <div class="col-md-5">
-        <img class="featurette-image img-responsive" src="{{member.image_source}}"alt="Picture of {{ member.name }}"></img>
+        <img class="featurette-image img-responsive" src="{{member.image_source}}" alt="Picture of {{ member.name }}"></img>
     </div>
 </div>
-<hr class="featurette-divider">
-
- {% endfor %}
-
-{% endblock %}
+<!--based on the index number it gives a different position into html-->
+{% else %}
+<div class="row featurette">
+    <div class="col-md-5">
+        <img class="featurette-image img-responsive" src="{{ member.image_source }}" alt="Picture of {{ member.name }}">
+    </div>
+    <div class="col-md-7">
+        <h3><a href="/about/{{ member.url }}">{{ loop.index }}. {{ member.name }}</a></h3>
+        <p>{{ member.description }}</p>
+    </div>
+</div>
+{% endif %} {% if loop.index != 3 %}
+<hr class="featurette-divider"> {% endif %} {% endfor %} {% endblock %}
