@@ -1,8 +1,10 @@
 {% extends 'base.html' %} {% block content %}
 
-{for number in list_of_numbers}
-<p>{{% number %}}</p>
-{% end for %}
+{% for number in list_of_numbers %}
+<p>{{ number }}</p>
+{% endfor %}
+
+
 <h2>{{ page_title}}</h2>
 <p>
     StarCraft is a military science fiction media franchise, created by Chris Metzen and James Phinney and owned by Blizzard Entertainment. The series, set in the beginning of the 26th century, centers on a galactic struggle for dominance among four species—the
